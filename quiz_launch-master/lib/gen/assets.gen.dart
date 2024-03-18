@@ -7,6 +7,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 
 class $AssetsImagesGen {
@@ -127,6 +128,19 @@ class $AssetsImagesGen {
   AssetGenImage get profile  =>
       const AssetGenImage('assets/images/profile.png');
 
+      /// File path: assets/images/profile2.png
+  AssetGenImage get percentagecal =>
+      const AssetGenImage('assets/images/percentage.png');    
+  
+      /// File path: assets/images/boy.png
+  AssetGenImage get boy  =>
+      const AssetGenImage('assets/images/imageboy.png');
+
+   
+      /// File path: assets/images/girl.png
+  AssetGenImage get girl  =>
+      const AssetGenImage('assets/images/imagegirl.png');    
+
   /// List of all assets
   List<AssetGenImage> get values => [
         icon,
@@ -161,7 +175,11 @@ class $AssetsImagesGen {
         trueorfalse,
         two,
         appiconforeground,
-        profile
+        profile,
+        percentagecal,
+        girl,
+        boy
+      
       ];
 }
 

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:quiz_app/core/colors.dart';
 import 'package:quiz_app/gen/fonts.gen.dart';
 import 'package:quiz_app/presentation/screens/emailpage/email_page.dart';
-import 'package:quiz_app/presentation/screens/login/login_page.dart';
 import 'package:quiz_app/presentation/screens/onboarding/onboarding_page.dart';
 import 'package:quiz_app/presentation/screens/signup/signup_constants.dart';
 
@@ -46,13 +44,16 @@ class _SignUpPageState extends State<SignUpPage> {
           children: [
             ElevatedButton(
               onPressed: () {
-                Get.to(EmailPage()); 
+                Get.to(EmailPage());
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.email_outlined,color: Colours.CardColour,), 
-                  SizedBox(width: 8), 
+                  Icon(
+                    Icons.email_outlined,
+                    color: Colours.CardColour,
+                  ),
+                  SizedBox(width: 8),
                   Text(
                     SignUpConstsant.formText1,
                     style: TextStyle(
@@ -80,9 +81,8 @@ class _SignUpPageState extends State<SignUpPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                
-                  Icon(Icons.android_outlined), 
-                  SizedBox(width: 8), 
+                  Icon(Icons.android_outlined),
+                  SizedBox(width: 8),
                   Text(
                     SignUpConstsant.formtext2,
                     style: TextStyle(
@@ -102,61 +102,85 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
               ),
             ),
-             SizedBox(height: 15,),                                                
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children:  [
-                          SizedBox(height: 2,width: 0,),
-                          Text(
-                            SignUpConstsant.text1,
-                            style: TextStyle(
-                              color: Colours.textColour,
-                              fontWeight: FontWeight.w400,
-                              fontFamily: FontFamily.rubik,
-                              fontSize: 16
-                            ),
-                          ),
-                          SizedBox(height: 2,width: 0,),
-                          TextButton(
-                            onPressed:(){
-                              Get.to(OnBoardingPage());
-                            },
-                            child: Text(
-                              SignUpConstsant.textButton,
-                              style: TextStyle(
-                                color: Colours.buttonColour,
-                                fontFamily: FontFamily.rubik,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500
-                              ),
-                            ),
-                            style: TextButton.styleFrom(
-                              primary: Colours.textColour
-                            ),
-                          ),
-                        ]
-                      ),
-                      SizedBox(height: 15,),
-                      Container(
- 
-                        margin: EdgeInsets.only(left: 10),
-                        
-                        child: Row(
-                       
-                        children: [
-                          Text(SignUpConstsant.text4,style: TextStyle(fontSize: 14,color: Colours.textColour,fontWeight: FontWeight.w400),),
-                          RichText(text: TextSpan(text:SignUpConstsant.richText2,style: TextStyle(fontSize: 14,color:Colours.primaryColor,fontWeight: FontWeight.w500))),
-                        ],
-                                 ),
-                      ),
-                      SizedBox(height: 5,),
-                         Container(
-                          margin: EdgeInsets.only(left: 150),
-                           child: Column(
-                           children: [RichText(text: TextSpan(text:SignUpConstsant.richText3,style: TextStyle(fontSize: 14,color:Colours.primaryColor,fontWeight: FontWeight.w500))),],
-                                              ),
-                         )
+            SizedBox(
+              height: 15,
+            ),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: 2,
+                    width: 0,
+                  ),
+                  Text(
+                    SignUpConstsant.text1,
+                    style: TextStyle(
+                        color: Colours.textColour,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: FontFamily.rubik,
+                        fontSize: 16),
+                  ),
+                  SizedBox(
+                    height: 2,
+                    width: 0,
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Get.to(OnBoardingPage());
+                    },
+                    child: Text(
+                      SignUpConstsant.textButton,
+                      style: TextStyle(
+                          color: Colours.buttonColour,
+                          fontFamily: FontFamily.rubik,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500),
+                    ),
+                    style: TextButton.styleFrom(primary: Colours.textColour),
+                  ),
+                ]),
+            SizedBox(
+              height: 15,
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 10),
+              child: Row(
+                children: [
+                  Text(
+                    SignUpConstsant.text4,
+                    style: TextStyle(
+                        fontSize: 14,
+                        color: Colours.textColour,
+                        fontWeight: FontWeight.w400),
+                  ),
+                  RichText(
+                      text: TextSpan(
+                          text: SignUpConstsant.richText2,
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: Colours.primaryColor,
+                              fontWeight: FontWeight.w500))),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 150),
+              child: Column(
+                children: [
+                  RichText(
+                      text: TextSpan(
+                          text: SignUpConstsant.richText3,
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: Colours.primaryColor,
+                              fontWeight: FontWeight.w500))),
+                ],
+              ),
+            )
           ],
         ),
       ),

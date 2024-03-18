@@ -4,13 +4,9 @@ import 'package:quiz_app/core/colors.dart';
 import 'package:quiz_app/gen/assets.gen.dart';
 import 'package:quiz_app/gen/fonts.gen.dart';
 import 'package:quiz_app/presentation/screens/controller/addcategegory_controller.dart';
-
 import 'package:quiz_app/presentation/screens/controller/recentquiz_controller.dart';
-import 'package:quiz_app/presentation/screens/controller/user_controller.dart';
 import 'package:quiz_app/presentation/screens/createquiz/add_cateragory.dart';
 import 'package:quiz_app/presentation/screens/home/home_constraints.dart';
-import 'package:quiz_app/presentation/screens/models/addcategaries_models.dart';
-import 'package:quiz_app/presentation/widgets/common_ui_bg.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -21,6 +17,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
+  final addCategaryController = Get.put<AddCategaryController>(AddCategaryController());
+  final quizController = Get.put<RecentQuizController>(RecentQuizController());
 
   void _onItemTapped(int index) {
     setState(() {
@@ -29,16 +27,17 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    final controller = Get.put<addcategaryController>(addcategaryController());
-    final quizController = Get.put<recentquizController>(recentquizController());
-    List<Addcategorymodel> userList = controller.userList;
+  void initState() {
+    super.initState();
 
-    @override
-    void initState() {
-      super.initState();
-      quizController.getrecent(); // Fetch recent quiz data
-    }
+   // quizController.getrecent(); // Fetch recent quiz data
+  }
+
+  @override
+  Widget build(BuildContext context) {
+
+
+
 
     return Scaffold(
       appBar: AppBar(
@@ -169,19 +168,19 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ],
                           ),
-                          Obx(() => quizController.isLoading.value
+                          Obx(() => addCategaryController.isLoading.value
                               ? CircularProgressIndicator()
                               : Expanded(
                                   child: ListView.builder(
-                                    itemCount: userList.length,
+                                    itemCount: addCategaryController.userList.length,
                                     itemBuilder: (_, index) {
                                       return ListTile(
-                                        title: Text('${userList[index].category}'),
+                                        title: Text('${addCategaryController.userList[index].category}'),
                                         subtitle: Row(
                                           children: [
-                                            Text('${userList[index].subCategory}'),
+                                            Text('${addCategaryController.userList[index].subCategory}'),
                                             SizedBox(width: 20),
-                                            Text('${userList[index].noOfQuizzes.toString()}'),
+                                            Text('${addCategaryController.userList[index].noOfQuizzes.toString()}'),
                                           ],
                                         ),
                                       );

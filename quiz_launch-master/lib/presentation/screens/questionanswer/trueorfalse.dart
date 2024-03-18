@@ -4,7 +4,7 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:quiz_app/core/colors.dart';
 import 'package:quiz_app/gen/assets.gen.dart';
 import 'package:quiz_app/gen/fonts.gen.dart';
-import 'package:quiz_app/presentation/screens/MultipleAnswer/multipleanswertype.dart';
+import 'package:quiz_app/presentation/screens/multiple_answer/multipleanswertype.dart';
 import 'package:quiz_app/presentation/screens/questionanswer/true_or_false_type_constants.dart';
 import 'package:quiz_app/presentation/widgets/common_ui_bg.dart';
 
@@ -143,7 +143,7 @@ class _TrueOrFalseTypeState extends State<TrueOrFalseType> {
                         SizedBox(height: 20),
                         ElevatedButton(
                           onPressed: () {
-                            Get.to(() => MultAnserType());
+                            Get.to(() => MultiAnswerType());
                           },
                           child: Text(
                             trueorfalsetypeconstants.text5,

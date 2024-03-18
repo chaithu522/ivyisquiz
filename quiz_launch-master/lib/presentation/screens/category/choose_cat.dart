@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:quiz_app/core/colors.dart';
 import 'package:quiz_app/gen/fonts.gen.dart';
 import 'package:quiz_app/presentation/screens/category/choosecat_constants.dart';

@@ -14,6 +14,7 @@ class ReviewAnswer extends StatefulWidget {
   @override
   State<ReviewAnswer> createState() => _ReviewAnswerState();
 }
+
 class _ReviewAnswerState extends State<ReviewAnswer> {
   @override
   Widget build(BuildContext context) {
@@ -50,14 +51,13 @@ class _ReviewAnswerState extends State<ReviewAnswer> {
           color: Colours.primaryColor,
           child: Column(
             children: [
-              
               Container(
                 margin: EdgeInsets.only(top: 80, left: 57),
                 child: Image.asset(Assets.images.review.path),
                 width: 360,
                 height: 243,
               ),
-               Container(
+              Container(
                 margin: EdgeInsets.only(left: 8, right: 8),
                 width: 359,
                 height: 178,
@@ -126,7 +126,7 @@ class _ReviewAnswerState extends State<ReviewAnswer> {
               Container(
                 margin: EdgeInsets.only(left: 8, right: 8),
                 width: 359,
-                height: 658, 
+                height: 658,
                 child: Card(
                   child: Padding(
                     padding: EdgeInsets.all(8.0),
@@ -135,7 +135,7 @@ class _ReviewAnswerState extends State<ReviewAnswer> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween, 
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
                               Reviewconstants.cardtext4,
@@ -149,193 +149,217 @@ class _ReviewAnswerState extends State<ReviewAnswer> {
                             Icon(Icons.edit),
                           ],
                         ),
-                        SizedBox(height: 20), 
+                        SizedBox(height: 20),
                         SizedBox(
                           width: double.infinity,
                           height: 500,
                           child: Card(
                             color: Colours.secondaryColour,
                             child: Padding(
-                              padding: EdgeInsets.all(10.0),
-                              child: Column(
-                                children:[
-                                  Row(children:[
-                                    SizedBox(height: 2,),
-                              Image.asset(
-                                Assets.images.one.path,),
-                              
-                              SizedBox(width: 10,height: 20,),
-                              Text(
-                                Reviewconstants.cardtext5,
-                                style: TextStyle(
-                                  fontFamily: FontFamily.rubik,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colours.primaryColor,
-                                ),
-                              ),SizedBox(width: 10,),
-                                Image.asset(
-                                Assets.images.quiztype.path,),
-                                
-                       ] )
-                       ,
-                       SizedBox(height: 5,),
-                       Container(
-                        margin: EdgeInsets.only(left: 24),
-                      child: Column(
-                        
-                                  children: [
-                                    
-                                      Text(
-                                Reviewconstants.cardtext7,
-                                style: TextStyle(
-                                  fontFamily: FontFamily.rubik,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  color: Colours.textColour
-                                ),
-                                 ) ],
-                                 
-                                )), Row(children:[
-                                    SizedBox(height: 2,),
-                              Image.asset(
-                                Assets.images.two.path,),
-                              
-                              SizedBox(width: 10,height: 20,),
-                              Text(
-                                Reviewconstants.cardtext5,
-                                style: TextStyle(
-                                  fontFamily: FontFamily.rubik,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colours.primaryColor,
-                                ),
-                              ),SizedBox(width: 10,),
-                                Image.asset(
-                                Assets.images.quiztype.path,),
-                                
-                       ] )
-                       ,
-                       SizedBox(height: 5,),
-                       Container(
-                        margin: EdgeInsets.only(left: 24),
-                      child: Column(
-                        
-                                  children: [
-                                    
-                                      Text(
-                                Reviewconstants.cardtext8,
-                                style: TextStyle(
-                                  fontFamily: FontFamily.rubik,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  color: Colours.textColour
-                                ),
-                                 ) ],
-
-                                )),
-                                 Row(children:[
-                                    SizedBox(height: 2,),
-                              Image.asset(
-                                Assets.images.three.path,),
-                              
-                              SizedBox(width: 10,height: 20,),
-                              Text(
-                                Reviewconstants.cardtext5,
-                                style: TextStyle(
-                                  fontFamily: FontFamily.rubik,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colours.primaryColor,
-                                ),
-                              ),SizedBox(width: 10,),
-                                Image.asset(
-                                Assets.images.quiztype2.path,),
-                                
-                       ] )
-                       ,
-                       SizedBox(height: 5,),
-                       Container(
-                        margin: EdgeInsets.only(left: 24),
-                      child: Column(
-                        
-                                  children: [
-                                    
-                                      Text(
-                                Reviewconstants.cardtext10,
-                                style: TextStyle(
-                                  fontFamily: FontFamily.rubik,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  color: Colours.textColour
-                                ),
-                                 ) ],
-
-                                )),
-                                 Row(children:[
-                                    SizedBox(height: 2,),
-                              Image.asset(
-                                Assets.images.four.path,),
-                              
-                              SizedBox(width: 10,height: 20,),
-                              Text(
-                                Reviewconstants.cardtext5,
-                                style: TextStyle(
-                                  fontFamily: FontFamily.rubik,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colours.primaryColor,
-                                ),
-                              ),SizedBox(width: 10,),
-                                Image.asset(
-                                Assets.images.quiztype3.path,),
-                                
-                       ] )
-                       ,
-                       SizedBox(height: 5,),
-                       Container(
-                        margin: EdgeInsets.only(left: 24),
-                      child: Column(
-                        
-                                  children: [
-                                    
-                                      Text(
-                                Reviewconstants.cardtext11,
-                                style: TextStyle(
-                                  fontFamily: FontFamily.rubik,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  color: Colours.textColour
-                                ),
-                                 ) ],
-
-                                ))])),
+                                padding: EdgeInsets.all(10.0),
+                                child: Column(children: [
+                                  Row(children: [
+                                    SizedBox(
+                                      height: 2,
+                                    ),
+                                    Image.asset(
+                                      Assets.images.one.path,
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      Reviewconstants.cardtext5,
+                                      style: TextStyle(
+                                        fontFamily: FontFamily.rubik,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colours.primaryColor,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Image.asset(
+                                      Assets.images.quiztype.path,
+                                    ),
+                                  ]),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Container(
+                                      margin: EdgeInsets.only(left: 24),
+                                      child: Column(
+                                        children: [
+                                          Text(
+                                            Reviewconstants.cardtext7,
+                                            style: TextStyle(
+                                                fontFamily: FontFamily.rubik,
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w400,
+                                                color: Colours.textColour),
+                                          )
+                                        ],
+                                      )),
+                                  Row(children: [
+                                    SizedBox(
+                                      height: 2,
+                                    ),
+                                    Image.asset(
+                                      Assets.images.two.path,
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      Reviewconstants.cardtext5,
+                                      style: TextStyle(
+                                        fontFamily: FontFamily.rubik,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colours.primaryColor,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Image.asset(
+                                      Assets.images.quiztype.path,
+                                    ),
+                                  ]),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Container(
+                                      margin: EdgeInsets.only(left: 24),
+                                      child: Column(
+                                        children: [
+                                          Text(
+                                            Reviewconstants.cardtext8,
+                                            style: TextStyle(
+                                                fontFamily: FontFamily.rubik,
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w400,
+                                                color: Colours.textColour),
+                                          )
+                                        ],
+                                      )),
+                                  Row(children: [
+                                    SizedBox(
+                                      height: 2,
+                                    ),
+                                    Image.asset(
+                                      Assets.images.three.path,
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      Reviewconstants.cardtext5,
+                                      style: TextStyle(
+                                        fontFamily: FontFamily.rubik,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colours.primaryColor,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Image.asset(
+                                      Assets.images.quiztype2.path,
+                                    ),
+                                  ]),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Container(
+                                      margin: EdgeInsets.only(left: 24),
+                                      child: Column(
+                                        children: [
+                                          Text(
+                                            Reviewconstants.cardtext10,
+                                            style: TextStyle(
+                                                fontFamily: FontFamily.rubik,
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w400,
+                                                color: Colours.textColour),
+                                          )
+                                        ],
+                                      )),
+                                  Row(children: [
+                                    SizedBox(
+                                      height: 2,
+                                    ),
+                                    Image.asset(
+                                      Assets.images.four.path,
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      Reviewconstants.cardtext5,
+                                      style: TextStyle(
+                                        fontFamily: FontFamily.rubik,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colours.primaryColor,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Image.asset(
+                                      Assets.images.quiztype3.path,
+                                    ),
+                                  ]),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Container(
+                                      margin: EdgeInsets.only(left: 24),
+                                      child: Column(
+                                        children: [
+                                          Text(
+                                            Reviewconstants.cardtext11,
+                                            style: TextStyle(
+                                                fontFamily: FontFamily.rubik,
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w400,
+                                                color: Colours.textColour),
+                                          )
+                                        ],
+                                      ))
+                                ])),
                           ),
                         ),
-                         SizedBox(height: 20,),
-                      ElevatedButton(
-                      onPressed: () {
-                      Get.to(()=>QuizDetails());
-                     },
-
-                        child: Text(
-                        Reviewconstants.cardtext12,
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: FontFamily.rubik,
-                            color: Colours.CardColour
+                        SizedBox(
+                          height: 20,
+                        ),
+                        ElevatedButton(
+                          onPressed: () {
+                            Get.to(() => QuizDetails());
+                          },
+                          child: Text(
+                            Reviewconstants.cardtext12,
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                fontFamily: FontFamily.rubik,
+                                color: Colours.CardColour),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            fixedSize: Size(370, 50),
+                            primary: Colours.buttonColour,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
                           ),
                         ),
-                        style: ElevatedButton.styleFrom(
-                          fixedSize: Size(370, 50),
-                          primary: Colours.buttonColour,
-                          shape: RoundedRectangleBorder( 
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          
-                        ),
-                      ),
                       ],
                     ),
                   ),

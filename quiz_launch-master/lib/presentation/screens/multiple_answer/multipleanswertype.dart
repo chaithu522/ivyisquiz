@@ -4,20 +4,18 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:quiz_app/core/colors.dart';
 import 'package:quiz_app/gen/assets.gen.dart';
 import 'package:quiz_app/gen/fonts.gen.dart';
-import 'package:quiz_app/presentation/screens/MultipleAnswer/multilpleanserconstant.dart';
 import 'package:quiz_app/presentation/screens/answer%20explanation/answer_exp.dart';
-import 'package:quiz_app/presentation/screens/quiz_completed/quizcomp_page.dart';
-import 'package:quiz_app/presentation/screens/review_quiz/review_quiz.dart';
+import 'package:quiz_app/presentation/screens/multiple_answer/multilpleanserconstant.dart';
 import 'package:quiz_app/presentation/widgets/common_ui_bg.dart';
 
-class MultAnserType extends StatefulWidget {
-  const MultAnserType({super.key});
+class MultiAnswerType extends StatefulWidget {
+  const MultiAnswerType({super.key});
 
   @override
-  State<MultAnserType> createState() => _MultAnserTypeState();
+  State<MultiAnswerType> createState() => _MultiAnswerTypeState();
 }
 
-class _MultAnserTypeState extends State<MultAnserType> {
+class _MultiAnswerTypeState extends State<MultiAnswerType> {
   bool isChecked1 = false;
   bool isChecked2 = false;
   bool isChecked3 = false;
@@ -215,7 +213,7 @@ class _MultAnserTypeState extends State<MultAnserType> {
                          SizedBox(height: 20,),
                          ElevatedButton(
                         onPressed: () {
-                        Get.to(()=>AnwserExpl());
+                        Get.to(()=>AnswerExpl());
                        },
               
                           child: Text(

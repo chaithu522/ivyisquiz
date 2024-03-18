@@ -2,11 +2,10 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-
-import 'package:quiz_app/presentation/screens/models/user_models.dart';
+import 'package:quiz_app/data/models/user_models.dart';
 
 class UserController extends GetxController {
-  var userList = <LoginModel>[].obs;
+  var userList = <UserModel>[].obs;
   var isLoading = true.obs;
 
   @override
@@ -20,7 +19,7 @@ class UserController extends GetxController {
     final response = await http.post(Uri.parse(userUrl));
     if (response.statusCode == 201 || response.statusCode == 200) {
       final List result = jsonDecode(response.body)['data'];
-      userList.value = result.map((e) => LoginModel.fromJson(e)).toList();
+      userList.value = result.map((e) => UserModel.fromJson(e)).toList();
       isLoading.value = false;
       update();
     } else {

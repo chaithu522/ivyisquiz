@@ -1,10 +1,10 @@
-class RecentQuizmodel {
+class RecentQuizModel {
   String? name;
   String? result;
 
-  RecentQuizmodel({this.name, this.result});
+  RecentQuizModel({this.name, this.result});
 
-  RecentQuizmodel.fromJson(Map<String, dynamic> json) {
+  RecentQuizModel.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     result = json['result'];
   }

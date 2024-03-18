@@ -7,16 +7,15 @@ import 'package:quiz_app/gen/fonts.gen.dart';
 import 'package:quiz_app/presentation/screens/answer%20explanation/answerexp_constants.dart';
 import 'package:quiz_app/presentation/screens/live%20quiz/livequiz_1.dart';
 import 'package:quiz_app/presentation/screens/quiz_completed/quizcomp_page.dart';
-import 'package:quiz_app/presentation/screens/quiz_details/quiz_details.dart';
 
-class AnwserExpl extends StatefulWidget {
-  const AnwserExpl({Key? key}) : super(key: key);
+class AnswerExpl extends StatefulWidget {
+  const AnswerExpl({Key? key}) : super(key: key);
 
   @override
-  State<AnwserExpl> createState() => _AnwserExplState();
+  State<AnswerExpl> createState() => _AnswerExplState();
 }
 
-class _AnwserExplState extends State<AnwserExpl> {
+class _AnswerExplState extends State<AnswerExpl> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

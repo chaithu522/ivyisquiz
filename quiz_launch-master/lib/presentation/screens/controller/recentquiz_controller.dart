@@ -1,13 +1,12 @@
 import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:quiz_app/presentation/screens/models/addcategaries_models.dart';
-import 'package:quiz_app/presentation/screens/models/recentquiz_models.dart';
+import 'package:quiz_app/data/models/recentquiz_models.dart';
 
 
 
-class recentquizController extends GetxController {
-  var userList = <RecentQuizmodel>[].obs;
+class RecentQuizController extends GetxController {
+  var userList = <RecentQuizModel>[].obs;
   var isLoading = true.obs;
 
   @override
@@ -23,7 +22,7 @@ class recentquizController extends GetxController {
       print("hello");
     if (response.statusCode == 200) {
   final List result = jsonDecode(response.body);
-  userList.value = result.map((e) => RecentQuizmodel.fromJson(e)).toList();
+  userList.value = result.map((e) => RecentQuizModel.fromJson(e)).toList();
   isLoading.value = false;
 
   update();

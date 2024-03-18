@@ -6,7 +6,7 @@ import 'package:quiz_app/presentation/screens/controller/recentquiz_controller.d
 class ControllerBindings extends Bindings {
   @override
   void dependencies() {
-    Get.put<addcategaryController>(addcategaryController());
-      Get.put<recentquizController>(recentquizController());
+    Get.put<AddCategaryController>(AddCategaryController());
+      Get.put<RecentQuizController>(RecentQuizController());
   }
 }

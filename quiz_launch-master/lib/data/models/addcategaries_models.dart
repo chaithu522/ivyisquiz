@@ -1,17 +1,17 @@
-class Addcategorymodel {
+class AddCategoryModel {
   int? id;
   String? category;
   String? subCategory;
   int? noOfQuizzes;
 
-  Addcategorymodel({
+  AddCategoryModel({
     this.id,
     this.category,
     this.subCategory,
     this.noOfQuizzes,
   });
 
-  Addcategorymodel.fromJson(Map<String, dynamic> json) {
+  AddCategoryModel.fromJson(Map<String, dynamic> json) {
     id = json['id'] as int?;
     category = json['Category'] as String?;
     subCategory = json['Sub_Category'] as String?;

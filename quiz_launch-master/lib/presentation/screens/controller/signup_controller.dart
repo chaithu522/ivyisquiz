@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:quiz_app/presentation/screens/models/signup_models.dart';
+import 'package:quiz_app/data/models/signup_models.dart';
 
 
 class SignupController extends GetxController {

@@ -22,6 +22,7 @@ class _EmailPageState extends State<EmailPage> {
   final _formKey1 = GlobalKey<FormState>(); // Key for the first form
   final _formKey3 = GlobalKey<FormState>(); // Key for the OTP form
   bool _showOtpField = false;
+  TextEditingController _nameController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _otpController = TextEditingController();
@@ -49,87 +50,97 @@ class _EmailPageState extends State<EmailPage> {
       ),
       backgroundColor: Colours.secondaryColour,
       body: SingleChildScrollView(
+       child: Center(
         child: Container(
-          margin: EdgeInsets.only(top: 20, left: 27, right: 27),
+          margin: EdgeInsets.only(top: 10, left: 27, right: 27),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                EmailConstraints.text1,
-                style: TextStyle(
-                  color: Colours.primaryColor,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-              SizedBox(height: 20),
-              Card(
-                elevation: 0,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Form(
-                    key: _formKey1,
-                    child: Column(
-                      children: [
-                        TextFormField(
-                          controller: _emailController,
-                          validator: Validation1.nameValidation,
-                          decoration: InputDecoration(
-                            hintText: EmailConstraints.hinttext1,
-                            hintStyle: TextStyle(color: Colours.formTextColour),
-                            filled: true,
-                            fillColor: Colours.CardColour,
-                            contentPadding: EdgeInsets.zero,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(15)),
-                              borderSide: BorderSide.none,
-                            ),
-                            prefixIcon: Icon(
-                              Icons.email_outlined,
-                              color: Colours.primaryColor,
-                            ),
+              SizedBox(height: 10),
+              Container(
+                margin: EdgeInsets.only(top: 10, left: 7, right: 7),
+                child: Form(
+                  key: _formKey1,
+                  child: Column(
+                    children: [
+                      SizedBox(height: 20),
+                      TextFormField(
+                        controller: _nameController,
+                        validator: Validation4.nameValidation,
+                        decoration: InputDecoration(
+                          hintText: EmailConstraints.namehinttext,
+                          hintStyle: TextStyle(color: Colours.formTextColour),
+                          contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 25), // Increase padding
+                          filled: true,
+                          fillColor: Colours.CardColour,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
+                            borderSide: BorderSide.none,
+                          ),
+                          prefixIcon: Icon(
+                            Icons.person_outline,
+                            color: Colours.primaryColor,
                           ),
                         ),
-                        SizedBox(height: 20),
-                        TextFormField(
-                          controller: _passwordController,
-                          validator: Validation3.passwordValidation, // Password validation
-                          obscureText: true, // Password field should be obscured
-                          decoration: InputDecoration(
-                            hintText: 'Password', // Provide appropriate hint text
-                            hintStyle: TextStyle(color: Colours.formTextColour),
-                            filled: true,
-                            fillColor: Colours.CardColour,
-                            contentPadding: EdgeInsets.zero,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(15)),
-                              borderSide: BorderSide.none,
-                            ),
-                            prefixIcon: Icon(
-                              Icons.lock_outline,
-                              color: Colours.primaryColor,
-                            ),
+                      ),
+                      SizedBox(height: 20),
+                      TextFormField(
+                        controller: _emailController,
+                        validator: Validation1.nameValidation,
+                        decoration: InputDecoration(
+                          hintText: EmailConstraints.hinttext1,
+                          hintStyle: TextStyle(color: Colours.formTextColour),
+                          contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 25), // Increase padding
+                          filled: true,
+                          fillColor: Colours.CardColour,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
+                            borderSide: BorderSide.none,
+                          ),
+                          prefixIcon: Icon(
+                            Icons.email_outlined,
+                            color: Colours.primaryColor,
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                      SizedBox(height: 20),
+                      TextFormField(
+                        controller: _passwordController,
+                        validator: Validation3.passwordValidation,
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          hintText: EmailConstraints.passwordtext,
+                          hintStyle: TextStyle(color: Colours.formTextColour),
+                          contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 25), // Increase padding
+                          filled: true,
+                          fillColor: Colours.CardColour,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
+                            borderSide: BorderSide.none,
+                          ),
+                          prefixIcon: Icon(
+                            Icons.lock_outline,
+                            color: Colours.primaryColor,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
               SizedBox(height: 20),
-             ElevatedButton(
-  onPressed: () async {
-    if (_formKey1.currentState!.validate()) {
-      final signUpStatusCode = await getSignupUser();
-      if (mounted) { // Check if the widget is still mounted
-        setState(() {
-          _showOtpField = true;
-        });
-      }
-    }
-  },
-
+              ElevatedButton(
+                onPressed: () async {
+                  if (_formKey1.currentState!.validate()) {
+                    final signUpStatusCode = await getSignupUser();
+                    if (mounted) { // Check if the widget is still mounted
+                      setState(() {
+                        _showOtpField = true;
+                      });
+                    }
+                  }
+                },
                 child: Text(
                   EmailConstraints.buttomText,
                   style: TextStyle(
@@ -140,7 +151,7 @@ class _EmailPageState extends State<EmailPage> {
                   ),
                 ),
                 style: ElevatedButton.styleFrom(
-                  fixedSize: Size(370, 50),
+                  fixedSize: Size(360, 60),
                   primary: Colours.buttonColour,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
@@ -170,20 +181,15 @@ class _EmailPageState extends State<EmailPage> {
                           child: TextFormField(
                             controller: _otpController,
                             keyboardType: TextInputType.number,
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Please enter your OTP';
-                              } else if (value.length != 5) {
-                                return 'OTP must be 5 digits';
-                              }
-                              return null;
-                            },
+                               validator: Validation2.otpValidation,
+                               obscureText: true,
                             decoration: InputDecoration(
                               hintText: EmailConstraints.hinttext2,
                               hintStyle: TextStyle(color: Colours.formTextColour),
+                             
+                              contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 25), // Increase padding
                               filled: true,
                               fillColor: Colours.CardColour,
-                              contentPadding: EdgeInsets.zero,
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.all(Radius.circular(15)),
                                 borderSide: BorderSide.none,
@@ -197,17 +203,15 @@ class _EmailPageState extends State<EmailPage> {
                         ),
                       ),
                     ),
+                    SizedBox(height: 20), // Added SizedBox for spacing
                     ElevatedButton(
                       onPressed: () async {
-                        if (_formKey3.currentState!.validate()
-                        ) 
-                        {
+                        if (_formKey3.currentState!.validate()) {
                           final response = await postOTP('12345');
-                          if (response.statusCode == 200)
-                           {
+                          if (response.statusCode == 200) {
                             Get.to(OnBoardingPage());
                           } else {
-                            Get.snackbar('Error', 'OTP verification failed',);
+                            Get.snackbar('Error', 'OTP verification failed');
                           }
                         }
                       },
@@ -221,7 +225,7 @@ class _EmailPageState extends State<EmailPage> {
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
-                        fixedSize: Size(370, 50),
+                        fixedSize: Size(360, 60),
                         primary: Colours.buttonColour,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15),
@@ -234,13 +238,16 @@ class _EmailPageState extends State<EmailPage> {
           ),
         ),
       ),
-    );
-  }
+    ),
+  );
+}
+
 
   Future<int> getSignupUser() async {
     const String userUrl = "http://106.51.63.100:8000/register/";
 
     final Map<String, dynamic> requestBody = {
+      'name': _nameController.text, // Add name field
       'email': _emailController.text,
       'password': "admin"
     };
@@ -254,20 +261,12 @@ class _EmailPageState extends State<EmailPage> {
     );
 
     print('Status Code: ${response.statusCode}''message:${response.body}');
-    print('${response.statusCode}' == '201');
-    if ('${response.statusCode}' == '201') {
-   if ('${response.statusCode}' == '201') {
-  final dynamic responseBody = jsonDecode(response.body);
-  final String message = responseBody['message'];
-  Get.snackbar('Success', message);
-} else {
-  Get.snackbar('Error', 'Server responded: ${response.statusCode}:${response.reasonPhrase.toString()}');
-}
-
-    } 
-    else {
-      Get.snackbar('Error Loading data!',
-          'Server responded: ${response.statusCode}:${response.reasonPhrase.toString()}');
+    if (response.statusCode == 201) {
+      final dynamic responseBody = jsonDecode(response.body);
+      final String message = responseBody['message'];
+      Get.snackbar('Success', message);
+    } else {
+      Get.snackbar('Error', 'Server responded: ${response.statusCode}:${response.reasonPhrase.toString()}');
     }
 
     return response.statusCode;

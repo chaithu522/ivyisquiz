@@ -40,5 +40,18 @@ class Validation2 {
   }
 }
 
+class Validation4 {
+  static String? nameValidation(String? text) {
+    if (text == null || text.isEmpty) {
+      return 'Please enter your name';
+    } else if (text.length <= 2) {
+      return 'Name must contain min 3 characters long';
+    } else if (!RegExp(r'^[a-zA-Z]+$').hasMatch(text)) {
+      return 'Name should only contain alphabets';
+    }
+    return null;
+  }
+}
+
 
 

@@ -3,9 +3,13 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:quiz_app/core/colors.dart';
 import 'package:quiz_app/gen/fonts.gen.dart';
+import 'package:quiz_app/presentation/screens/controller/addcategegory_controller.dart';
+import 'package:quiz_app/presentation/screens/controller/user_controller.dart';
 import 'package:quiz_app/presentation/screens/createquiz/add_cateragory.dart';
 import 'package:quiz_app/presentation/screens/createquiz/createquiz_page.dart';
 import 'package:quiz_app/presentation/screens/home/home_constraints.dart';
+import 'package:quiz_app/presentation/screens/models/addcategaries_models.dart';
+import 'package:quiz_app/presentation/widgets/common_ui_bg.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -32,6 +36,9 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final controller =  Get.put<addcategaryController>(addcategaryController());
+  
+    List<Addcategorymodel> userList = controller.userList;
     return Scaffold(
   appBar: AppBar(
     title: Text(
@@ -50,25 +57,16 @@ class _HomePageState extends State<HomePage> {
   ),
   backgroundColor: Colours.primaryColor,
   body: SingleChildScrollView(
-    child: Container(
-      margin: EdgeInsets.only(left: 24, right: 24, top: 50),
-      padding: EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: 327.0,
-            height: 84.0,
-            child: Card(
-              color: Colours.homeCard,
-              child: Container(
-                margin: EdgeInsets.only(left: 20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
+    child:Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              // First card with decreased size
+              FractionallySizedBox(
+                widthFactor: 0.8, // Adjust this value to decrease the width
+                child: Card(
+                  color:Colours.homeCard, // Example color, you can change it
+                  child: ListTile(
+                    title:  Text(
                         HomeConstaints.cardtext1,
                         style: TextStyle(
                           fontFamily: FontFamily.rubik,
@@ -76,8 +74,7 @@ class _HomePageState extends State<HomePage> {
                           fontWeight: FontWeight.w400,
                         ),
                       ),
-                    ),
-                    Row(
+                   subtitle:    Row(
                       children: [
                         Icon(Icons.headphones_rounded, color: Colours.homeCardtext),
                         SizedBox(width: 8),
@@ -91,23 +88,21 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
-                  ],
+                    
+               
+                     
+                  ),
                 ),
               ),
-            ),
-          ),
-          SizedBox(height: 20),
-          Container(
-            height: 232,
-            width: 327,
-            child: Card(
-              color: Colours.homeCard2,
-              child: Column(
-                children: [
-                  SizedBox(height: 20,),
-                  Text(HomeConstaints.cardtext3,style:TextStyle(fontSize: 14,fontWeight: FontWeight.w500,fontFamily: FontFamily.rubik,color: Colours.CardColour) ,),
-                  SizedBox(height: 20,),
-                  Text(HomeConstaints.cardtext4,style:TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: FontFamily.rubik,color: Colours.CardColour)),
+              SizedBox(height: 20),
+              // Second card with decreased size
+              FractionallySizedBox(
+                widthFactor: 0.8, // Adjust this value to decrease the width
+                child: Card(
+                  color: Colours.homeCard2, // Example color, you can change it
+                  child: ListTile(
+                    title: Text(HomeConstaints.cardtext3,style:TextStyle(fontSize: 14,fontWeight: FontWeight.w500,fontFamily: FontFamily.rubik,color: Colours.CardColour) ,),
+                    subtitle: Column(children: [ Text(HomeConstaints.cardtext4,style:TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: FontFamily.rubik,color: Colours.CardColour)),
                   SizedBox(height: 10,),
                   ElevatedButton(
                     onPressed: (){},
@@ -124,47 +119,115 @@ class _HomePageState extends State<HomePage> {
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))
                     )
                   )
-                ]
-              ),
-            ),
-          ),
-          SizedBox(height: 20),
-          Card(
-            color: Colours.CardColour,
-            child: Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Container(
-                height: 456,
-                margin: EdgeInsets.only(top:2,left: 0) ,
-                width: MediaQuery.of(context).size.width,
-                child: Padding(
-                  padding: const EdgeInsets.all(30.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.start, 
-                    children: [
-                      Text(
-                        HomeConstaints.title,
-                        style: TextStyle(fontSize: 20, fontFamily: FontFamily.rubik, fontWeight: FontWeight.w500),
-                      ),
-                      SizedBox(width: 10,),
-                      TextButton(
-                        onPressed: (){},
-                        child: Text(
-                          HomeConstaints.buttomText2,
-                          style: TextStyle(fontFamily: FontFamily.rubik, fontSize: 14, fontWeight: FontWeight.w500),
-                        ),
-                      ),
-                    ],
+
+                    ],),
                   ),
                 ),
               ),
-            ),
-          ),
-        ],
-      ),
+              SizedBox(height: 20),
+              // Third card with full width
+              Row(
+                children: [
+                  Expanded(
+                    child:Card(
+   
+     shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.only(
+      topLeft: Radius.circular(32.0),
+      topRight: Radius.circular(32.0),
+      bottomLeft: Radius.zero,
+      bottomRight: Radius.zero,
     ),
   ),
+            child: Container(
+              margin: EdgeInsets.only(left: 24,right: 24),
+              child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween, // Adjust alignment to separate the title and button
+                children: [
+                  Text(
+                    HomeConstaints.title,
+                    style: TextStyle(fontSize: 20, fontFamily: FontFamily.rubik, fontWeight: FontWeight.w500),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      HomeConstaints.buttomText2,
+                      style: TextStyle(fontFamily: FontFamily.rubik, fontSize: 14, fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20),
+            Obx(
+  () => controller.isLoading.value
+      ? const Center(child: CircularProgressIndicator())
+      : Expanded(
+          child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: userList.length,
+            itemBuilder: (_, index) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                child: Card(
+                  color: Theme.of(context).primaryColor,
+                  child: ListTile(
+                    title: Text(
+                      '${userList[index].category.toString()}',
+                      
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                    subtitle: Row(
+                      children: [
+                        Text(
+                          '${userList[index].subCategory.toString()}',
+                          style: const TextStyle(color: Colors.white),
+                        ),
+                        SizedBox(width: 20),
+                        Text(
+                          '${userList[index].noOfQuizzes.toString()}',
+                          style: const TextStyle(color: Colors.white),
+                        )
+                      ],
+                    ),
+                    // leading: CircleAvatar(
+                    //   backgroundImage: NetworkImage(
+                    //      userList[index].avatarz.toString()),
+                    // ),
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+)
+
+               
+               
+                ],
+                      ),
+            ),
+      ),
+    ),
+            ]
+            ),
+                  
+                ],
+              ),
+  ),
+          
+        
+      
+      
+    
+        
+      
+    
+    
+    
+  
   floatingActionButton: FloatingActionButton(
     onPressed: () {
          Get.to(()=>AddCategaryPage());

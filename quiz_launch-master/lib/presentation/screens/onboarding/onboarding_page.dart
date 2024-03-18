@@ -289,7 +289,7 @@ if (response.statusCode == 201 || response.statusCode == 200) {
     final List result = responseBody['data'];
     userList.value = result.map((e) => LoginModel.fromJson(e)).toList();
     isLoading.value = false;
-    print(userList.value.toString());
+    // print(userList.value.toString());
   } else {
     Get.snackbar('user not exist', 'Data format error');
   }

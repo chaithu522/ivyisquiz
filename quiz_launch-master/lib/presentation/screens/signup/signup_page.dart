@@ -65,7 +65,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ],
               ),
               style: ElevatedButton.styleFrom(
-                fixedSize: Size(370, 50),
+                fixedSize: Size(370, 60),
                 primary: Colours.buttonColour,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
@@ -95,7 +95,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ],
               ),
               style: ElevatedButton.styleFrom(
-                fixedSize: Size(370, 50),
+                fixedSize: Size(370, 60),
                 primary: Colours.CardColour,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),

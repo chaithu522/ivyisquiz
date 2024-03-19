@@ -5,12 +5,12 @@ import 'package:quiz_app/data/models/login_model.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService {
-  Future<LoginModel> loginAPI({
+  static Future<LoginModel> loginAPI({
     required String email,
     required String password,
   }) async {
     var headers = {'Content-Type': 'application/json'};
-    var body = jsonEncode({"username": '$email', "password": "$password"});
+    var body = jsonEncode({"email": '$email', "password": "$password"});
 
     var response = await http.post(Uri.parse(AppUrl.loginURL),
         body: body, headers: headers);

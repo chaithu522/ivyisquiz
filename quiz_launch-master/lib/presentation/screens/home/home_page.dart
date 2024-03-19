@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
 
-   // quizController.getrecent(); // Fetch recent quiz data
+    quizController.getrecent(); // Fetch recent quiz data
   }
 
   @override

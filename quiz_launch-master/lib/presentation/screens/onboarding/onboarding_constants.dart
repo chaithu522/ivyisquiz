@@ -3,7 +3,7 @@ class OnboardingConstants
 {
 
   static String title = "Create gamified quizzes \n becomes simple" ;
-  static String elevatedbutton = "Login";
+  static String login = "Login";
   static String text = "Don't have an account?";
   static String textbutton = "Sign Up";
   static String text1 = "Email Address";

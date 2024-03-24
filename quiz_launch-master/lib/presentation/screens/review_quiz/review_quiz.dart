@@ -4,7 +4,6 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:quiz_app/core/colors.dart';
 import 'package:quiz_app/gen/assets.gen.dart';
 import 'package:quiz_app/gen/fonts.gen.dart';
-import 'package:quiz_app/presentation/screens/home/home_constraints.dart';
 import 'package:quiz_app/presentation/screens/quiz_details/quiz_details.dart';
 import 'package:quiz_app/presentation/screens/review_quiz/review_constants.dart';
 

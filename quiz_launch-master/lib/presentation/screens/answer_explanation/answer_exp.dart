@@ -4,9 +4,9 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:quiz_app/core/colors.dart';
 import 'package:quiz_app/gen/assets.gen.dart';
 import 'package:quiz_app/gen/fonts.gen.dart';
-import 'package:quiz_app/presentation/screens/answer%20explanation/answerexp_constants.dart';
 import 'package:quiz_app/presentation/screens/live%20quiz/livequiz_1.dart';
 import 'package:quiz_app/presentation/screens/quiz_completed/quizcomp_page.dart';
+import 'answer_exp_constants.dart';
 
 class AnswerExpl extends StatefulWidget {
   const AnswerExpl({Key? key}) : super(key: key);

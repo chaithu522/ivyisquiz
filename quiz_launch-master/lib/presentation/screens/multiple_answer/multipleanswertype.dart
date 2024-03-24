@@ -4,9 +4,10 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:quiz_app/core/colors.dart';
 import 'package:quiz_app/gen/assets.gen.dart';
 import 'package:quiz_app/gen/fonts.gen.dart';
-import 'package:quiz_app/presentation/screens/answer%20explanation/answer_exp.dart';
 import 'package:quiz_app/presentation/screens/multiple_answer/multilpleanserconstant.dart';
 import 'package:quiz_app/presentation/widgets/common_ui_bg.dart';
+
+import '../answer_explanation/answer_exp.dart';
 
 class MultiAnswerType extends StatefulWidget {
   const MultiAnswerType({super.key});

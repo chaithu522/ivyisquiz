@@ -4,7 +4,6 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:quiz_app/core/colors.dart';
 import 'package:quiz_app/gen/assets.gen.dart';
 import 'package:quiz_app/gen/fonts.gen.dart';
-import 'package:quiz_app/presentation/screens/answer%20explanation/answer_exp.dart';
 import 'package:quiz_app/presentation/screens/live%20quiz/livequiz_constants.dart';
 import 'package:quiz_app/presentation/screens/questionanswer/trueorfalse.dart';
 import 'package:quiz_app/presentation/widgets/common_ui_bg.dart';

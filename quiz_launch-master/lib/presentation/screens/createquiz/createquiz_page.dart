@@ -3,8 +3,6 @@ import 'package:get/get.dart';
 import 'package:quiz_app/core/colors.dart';
 import 'package:quiz_app/gen/assets.gen.dart';
 import 'package:quiz_app/gen/fonts.gen.dart';
-import 'package:quiz_app/presentation/screens/category/choose_cat.dart';
-// import 'package:quiz_app/presentation/screens/createquiz/create_constants.dart';
 import 'package:quiz_app/presentation/screens/createquiz/create_constraints.dart';
 import 'package:quiz_app/presentation/screens/review_quiz/review_quiz.dart';
 

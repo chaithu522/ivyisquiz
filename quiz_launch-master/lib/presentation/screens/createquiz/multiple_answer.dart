@@ -8,8 +8,7 @@ class MultAnswer extends StatefulWidget {
 }
 
 class _MulAnswerState extends State<MultAnswer> {
-  @override
-   List<int> selectedCardList = [];
+  List<int> selectedCardList = [];
   @override
   Widget build(BuildContext context) {
     return GridView.builder(

@@ -1,8 +1,9 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
 import 'package:quiz_app/core/colors.dart';
 import 'package:quiz_app/core/form_validation/form_validation.dart';
-import 'package:quiz_app/data/api_service.dart';
 import 'package:quiz_app/data/models/signup_models.dart';
 import 'package:quiz_app/gen/fonts.gen.dart';
 import 'package:quiz_app/presentation/screens/emailpage/emailpage_constants.dart';
@@ -18,7 +19,8 @@ class EmailPage extends StatefulWidget {
 class _EmailPageState extends State<EmailPage> {
   var userList = <SignupModel>[].obs;
   var isLoading = true.obs;
-  final emailPageFormKey = GlobalKey<FormState>();
+  final _formKey1 = GlobalKey<FormState>(); // Key for the first form
+  final _formKey3 = GlobalKey<FormState>(); // Key for the OTP form
   bool _showOtpField = false;
   TextEditingController _nameController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
@@ -47,8 +49,7 @@ class _EmailPageState extends State<EmailPage> {
         backgroundColor: Colours.secondaryColour,
       ),
       backgroundColor: Colours.secondaryColour,
-      body:Form(
-        child:  SingleChildScrollView(
+      body: SingleChildScrollView(
        child: Center(
         child: Container(
           margin: EdgeInsets.only(top: 10, left: 27, right: 27),
@@ -59,7 +60,9 @@ class _EmailPageState extends State<EmailPage> {
               SizedBox(height: 10),
               Container(
                 margin: EdgeInsets.only(top: 10, left: 7, right: 7),
-                child:Column(
+                child: Form(
+                  key: _formKey1,
+                  child: Column(
                     children: [
                       SizedBox(height: 20),
                       TextFormField(
@@ -125,11 +128,12 @@ class _EmailPageState extends State<EmailPage> {
                     ],
                   ),
                 ),
+              ),
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () async {
-                  if (emailPageFormKey.currentState!.validate()) {
-                    final signUpStatusCode = await ApiService.signupApi(username:_nameController.text, password:_passwordController.text, email:_emailController.text);
+                  if (_formKey1.currentState!.validate()) {
+                    final signUpStatusCode = await getSignupUser();
                     if (mounted) { // Check if the widget is still mounted
                       setState(() {
                         _showOtpField = true;
@@ -172,7 +176,9 @@ class _EmailPageState extends State<EmailPage> {
                       elevation: 0,
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child:  TextFormField(
+                        child: Form(
+                          key: _formKey3,
+                          child: TextFormField(
                             controller: _otpController,
                             keyboardType: TextInputType.number,
                                validator: FormValidation.otpValidation,
@@ -194,13 +200,14 @@ class _EmailPageState extends State<EmailPage> {
                               ),
                             ),
                           ),
+                        ),
                       ),
                     ),
                     SizedBox(height: 20), // Added SizedBox for spacing
                     ElevatedButton(
                       onPressed: () async {
-                        if (emailPageFormKey.currentState!.validate()) {
-                          final response = await ApiService.postOTP('12345');
+                        if (_formKey3.currentState!.validate()) {
+                          final response = await postOTP('12345');
                           if (response.statusCode == 200) {
                             Get.to(OnBoardingPage());
                           } else {
@@ -232,7 +239,45 @@ class _EmailPageState extends State<EmailPage> {
         ),
       ),
     ),
-  ));
-}}
+  );
+}
 
 
+  Future<int> getSignupUser() async {
+    const String userUrl = "http://106.51.63.100:8000/register/";
+
+    final Map<String, dynamic> requestBody = {
+      'name': _nameController.text, // Add name field
+      'email': _emailController.text,
+      'password': "admin"
+    };
+
+    final response = await http.post(
+      Uri.parse(userUrl),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: jsonEncode(requestBody),
+    );
+
+    print('Status Code: ${response.statusCode}''message:${response.body}');
+    if (response.statusCode == 201) {
+      final dynamic responseBody = jsonDecode(response.body);
+      final String message = responseBody['message'];
+      Get.snackbar('Success', message);
+    } else {
+      Get.snackbar('Error', 'Server responded: ${response.statusCode}:${response.reasonPhrase.toString()}');
+    }
+
+    return response.statusCode;
+  }
+
+  static Future<http.Response> postOTP(String otp) async {
+    // Simulating the postOTP function without actually calling an endpoint
+    print('Simulated OTP verification for OTP: $otp');
+    return Future.delayed(Duration(seconds: 2), () {
+      // Simulate successful response for demonstration
+      return http.Response('{"status": "success"}', 200);
+    });
+  }
+}

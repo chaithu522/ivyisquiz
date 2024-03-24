@@ -7,6 +7,7 @@ import 'package:quiz_app/gen/fonts.gen.dart';
 import 'package:quiz_app/presentation/screens/category/choose_cat.dart';
 import 'package:quiz_app/presentation/screens/createquiz/create_constraints.dart';
 import 'package:quiz_app/presentation/screens/createquiz/createquiz_page.dart';
+import 'package:quiz_app/presentation/widgets/common_ui_bg.dart';
 
 class AddCategaryPage extends StatefulWidget {
   const AddCategaryPage({super.key});
@@ -53,8 +54,8 @@ class _AddCategaryPageState extends State<AddCategaryPage> {
         color: Colours.primaryColor,
         height: 880,
         width: 500,
-        child: Card(
-          child: Column(
+        child: CommonUIBG(
+          widget: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               SizedBox(height: 20),
@@ -246,4 +247,3 @@ class _AddCategaryPageState extends State<AddCategaryPage> {
   
   
     
-     

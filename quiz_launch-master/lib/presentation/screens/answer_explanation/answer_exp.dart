@@ -4,18 +4,18 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:quiz_app/core/colors.dart';
 import 'package:quiz_app/gen/assets.gen.dart';
 import 'package:quiz_app/gen/fonts.gen.dart';
-import 'package:quiz_app/presentation/screens/live%20quiz/livequiz_1.dart';
+import 'package:quiz_app/presentation/screens/answer_explanation/answerexp_constants.dart';
+import 'package:quiz_app/presentation/screens/live_quiz/livequiz_1.dart';
 import 'package:quiz_app/presentation/screens/quiz_completed/quizcomp_page.dart';
-import 'answer_exp_constants.dart';
 
-class AnswerExpl extends StatefulWidget {
-  const AnswerExpl({Key? key}) : super(key: key);
+class AnwserExpl extends StatefulWidget {
+  const AnwserExpl({Key? key}) : super(key: key);
 
   @override
-  State<AnswerExpl> createState() => _AnswerExplState();
+  State<AnwserExpl> createState() => _AnwserExplState();
 }
 
-class _AnswerExplState extends State<AnswerExpl> {
+class _AnwserExplState extends State<AnwserExpl> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

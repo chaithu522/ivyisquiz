@@ -59,7 +59,7 @@ class ApiService {
 
     var json = jsonDecode(response.body);
     if (response.statusCode == 200) {
-      Iterable list = json.decode(response.body);
+      Iterable list = jsonDecode(response.body);
       return list.map((model) => QuizGetClass.fromJson(model)).toList();
     } else {
       return [];

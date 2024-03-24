@@ -5,6 +5,7 @@ import 'package:quiz_app/gen/assets.gen.dart';
 import 'package:quiz_app/gen/fonts.gen.dart';
 import 'package:quiz_app/presentation/screens/createquiz/create_constraints.dart';
 import 'package:quiz_app/presentation/screens/review_quiz/review_quiz.dart';
+import 'package:quiz_app/presentation/widgets/common_ui_bg.dart';
 
 class Createpage extends StatefulWidget {
   const Createpage({Key? key}) : super(key: key);
@@ -65,8 +66,8 @@ class _CreatepageState extends State<Createpage> {
         color: Colours.primaryColor,
         height: 880,
         width: 500,
-        child: Card(
-          child: Column(
+        child: CommonUIBG(
+          widget: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               SizedBox(height: 20),

@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:quiz_app/core/colors.dart';
 import 'package:quiz_app/gen/assets.gen.dart';
 import 'package:quiz_app/gen/fonts.gen.dart';
-import 'package:quiz_app/presentation/screens/controller/addcategegory_controller.dart';
-import 'package:quiz_app/presentation/screens/controller/recentquiz_controller.dart';
+import 'package:quiz_app/presentation/screens/controller/add_categegory_controller.dart';
+import 'package:quiz_app/presentation/screens/controller/recent_quiz_controller.dart';
 import 'package:quiz_app/presentation/screens/createquiz/add_cateragory.dart';
 import 'package:quiz_app/presentation/screens/home/home_constraints.dart';
 
@@ -17,8 +17,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-  final addCategaryController = Get.put<AddCategaryController>(AddCategaryController());
-  final quizController = Get.put<RecentQuizController>(RecentQuizController());
+  final quizGetController = Get.put<QuizGetController>(QuizGetController());
+  final recentQuizController =
+      Get.put<RecentQuizController>(RecentQuizController());
 
   void _onItemTapped(int index) {
     setState(() {
@@ -30,15 +31,12 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
 
-    quizController.getrecent(); // Fetch recent quiz data
+    recentQuizController.quizRecentQuiz();
+    quizGetController.getQuiz(); // Fetch recent quiz data
   }
 
   @override
   Widget build(BuildContext context) {
-
-
-
-
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -75,15 +73,17 @@ class _HomePageState extends State<HomePage> {
                   ),
                   subtitle: Row(
                     children: [
-                      Icon(Icons.headphones_rounded, color: Colours.homeCardtext),
+                      Icon(Icons.headphones_rounded,
+                          color: Colours.homeCardtext),
                       SizedBox(width: 8),
                       Obx(() {
-                        if (quizController.isLoading.value) {
+                        if (recentQuizController.isLoading.value) {
                           return CircularProgressIndicator(); // Show loading indicator while data is loading
                         } else {
                           // Display recent quiz data if available
                           return Text(
-                            quizController.userList.isNotEmpty ? quizController.userList[0].name ?? "" : "",
+                            recentQuizController.quizRecentClass.value.name ??
+                                "",
                             style: TextStyle(
                               fontFamily: FontFamily.rubik,
                               fontSize: 18,
@@ -107,26 +107,37 @@ class _HomePageState extends State<HomePage> {
                 color: Colours.homeCard2, // Example color, you can change it
                 child: ListTile(
                   leading: Image.asset(Assets.images.boy.path),
-                  title: Text(HomeConstaints.cardtext3, style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, fontFamily: FontFamily.rubik, color: Colours.CardColour)),
+                  title: Text(HomeConstaints.cardtext3,
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: FontFamily.rubik,
+                          color: Colours.CardColour)),
                   subtitle: Column(
                     children: [
-                      Text(HomeConstaints.cardtext4, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, fontFamily: FontFamily.rubik, color: Colours.CardColour)),
-                      SizedBox(height: 10,),
-                      ElevatedButton(
-                        onPressed: (){},
-                        child: Text(
-                          HomeConstaints.buttomText,
+                      Text(HomeConstaints.cardtext4,
                           style: TextStyle(
-                            color: Colours.primaryColor,
-                            fontFamily: FontFamily.rubik,
-                            fontSize: 14,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: FontFamily.rubik,
+                              color: Colours.CardColour)),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      ElevatedButton(
+                          onPressed: () {},
+                          child: Text(
+                            HomeConstaints.buttomText,
+                            style: TextStyle(
+                              color: Colours.primaryColor,
+                              fontFamily: FontFamily.rubik,
+                              fontSize: 14,
+                            ),
                           ),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colours.CardColour,
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))
-                        )
-                      )
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colours.CardColour,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30))))
                     ],
                   ),
                   trailing: Image.asset(Assets.images.girl.path),
@@ -148,45 +159,57 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     child: Container(
-                      margin: EdgeInsets.only(left: 24,right: 24),
+                      margin: EdgeInsets.only(left: 24, right: 24),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween, // Adjust alignment to separate the title and button
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            // Adjust alignment to separate the title and button
                             children: [
                               Text(
                                 HomeConstaints.title,
-                                style: TextStyle(fontSize: 20, fontFamily: FontFamily.rubik, fontWeight: FontWeight.w500),
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontFamily: FontFamily.rubik,
+                                    fontWeight: FontWeight.w500),
                               ),
                               TextButton(
                                 onPressed: () {},
                                 child: Text(
                                   HomeConstaints.buttomText2,
-                                  style: TextStyle(fontFamily: FontFamily.rubik, fontSize: 14, fontWeight: FontWeight.w500),
+                                  style: TextStyle(
+                                      fontFamily: FontFamily.rubik,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500),
                                 ),
                               ),
                             ],
                           ),
-                          Obx(() => addCategaryController.isLoading.value
-                              ? CircularProgressIndicator()
-                              : Expanded(
-                                  child: ListView.builder(
-                                    itemCount: addCategaryController.userList.length,
-                                    itemBuilder: (_, index) {
-                                      return ListTile(
-                                        title: Text('${addCategaryController.userList[index].category}'),
-                                        subtitle: Row(
-                                          children: [
-                                            Text('${addCategaryController.userList[index].subCategory}'),
-                                            SizedBox(width: 20),
-                                            Text('${addCategaryController.userList[index].noOfQuizzes.toString()}'),
-                                          ],
-                                        ),
-                                      );
-                                    },
+                          Obx(
+                            () => quizGetController.isLoading.value
+                                ? CircularProgressIndicator()
+                                : ListView.builder(
+                              shrinkWrap:true,
+                              physics:NeverScrollableScrollPhysics(),
+                              itemCount:
+                              quizGetController.quizGetList.length,
+                              itemBuilder: (_, index) {
+                                return ListTile(
+                                  title: Text(
+                                      '${quizGetController.quizGetList[index].category}'),
+                                  subtitle: Row(
+                                    children: [
+                                      Text(
+                                          '${quizGetController.quizGetList[index].subCategory}'),
+                                      SizedBox(width: 20),
+                                      Text(
+                                          '${quizGetController.quizGetList[index].noOfQuizzes.toString()}'),
+                                    ],
                                   ),
-                                ),
+                                );
+                              },
+                            ),
                           ),
                         ],
                       ),

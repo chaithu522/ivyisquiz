@@ -4,19 +4,19 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:quiz_app/core/colors.dart';
 import 'package:quiz_app/gen/assets.gen.dart';
 import 'package:quiz_app/gen/fonts.gen.dart';
-import 'package:quiz_app/presentation/screens/multiple_answer/multilpleanserconstant.dart';
+import 'package:quiz_app/presentation/screens/answer_explanation/answer_exp.dart';
 import 'package:quiz_app/presentation/widgets/common_ui_bg.dart';
 
-import '../answer_explanation/answer_exp.dart';
+import 'multilpleanserconstant.dart';
 
-class MultiAnswerType extends StatefulWidget {
-  const MultiAnswerType({super.key});
+class MultipleAnswerType extends StatefulWidget {
+  const MultipleAnswerType({super.key});
 
   @override
-  State<MultiAnswerType> createState() => _MultiAnswerTypeState();
+  State<MultipleAnswerType> createState() => _MultipleAnswerTypeState();
 }
 
-class _MultiAnswerTypeState extends State<MultiAnswerType> {
+class _MultipleAnswerTypeState extends State<MultipleAnswerType> {
   bool isChecked1 = false;
   bool isChecked2 = false;
   bool isChecked3 = false;
@@ -44,8 +44,7 @@ class _MultiAnswerTypeState extends State<MultiAnswerType> {
           SizedBox(height: 20),
           Expanded(
             child: CommonUIBG(
-              widget:
-               Column(
+              widget: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 20),
@@ -55,23 +54,23 @@ class _MultiAnswerTypeState extends State<MultiAnswerType> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          Multipleanswertype.text1,
+                          MultipleAnswerTypeConstants.text1,
                           style: TextStyle(
                               fontFamily: FontFamily.rubik,
                               fontSize: 16,
                               fontWeight: FontWeight.w400,
                               color: Colours.textColour),
                         ),
-                        SizedBox(height: 10), 
+                        SizedBox(height: 10),
                         Text(
-                          Multipleanswertype.text2,
+                          MultipleAnswerTypeConstants.text2,
                           style: TextStyle(
                               fontFamily: FontFamily.rubik,
                               fontSize: 16,
                               fontWeight: FontWeight.w400,
                               color: Colours.primaryColor),
                         ),
-                        SizedBox(height: 30), 
+                        SizedBox(height: 30),
                         ElevatedButton(
                           onPressed: () {
                             // Get.to(()=>ReviewAnswer());
@@ -87,7 +86,7 @@ class _MultiAnswerTypeState extends State<MultiAnswerType> {
                                 },
                               ),
                               Text(
-                                Multipleanswertype.text3,
+                                MultipleAnswerTypeConstants.text3,
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
@@ -122,7 +121,7 @@ class _MultiAnswerTypeState extends State<MultiAnswerType> {
                                 },
                               ),
                               Text(
-                                Multipleanswertype.text4,
+                                MultipleAnswerTypeConstants.text4,
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
@@ -157,7 +156,7 @@ class _MultiAnswerTypeState extends State<MultiAnswerType> {
                                 },
                               ),
                               Text(
-                                Multipleanswertype.text5,
+                                MultipleAnswerTypeConstants.text5,
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
@@ -192,7 +191,7 @@ class _MultiAnswerTypeState extends State<MultiAnswerType> {
                                 },
                               ),
                               Text(
-                                Multipleanswertype.text6,
+                                MultipleAnswerTypeConstants.text6,
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
@@ -211,30 +210,28 @@ class _MultiAnswerTypeState extends State<MultiAnswerType> {
                             ),
                           ),
                         ),
-                         SizedBox(height: 20,),
-                         ElevatedButton(
-                        onPressed: () {
-                        Get.to(()=>AnswerExpl());
-                       },
-              
+                        SizedBox(
+                          height: 20,
+                        ),
+                        ElevatedButton(
+                          onPressed: () {
+                            Get.to(() => AnwserExpl());
+                          },
                           child: Text(
-                          Multipleanswertype.text7,
+                            MultipleAnswerTypeConstants.text7,
                             style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: FontFamily.rubik,
-                              color: Colours.CardColour
-                            ),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                fontFamily: FontFamily.rubik,
+                                color: Colours.CardColour),
                           ),
                           style: ElevatedButton.styleFrom(
                             fixedSize: Size(327, 56),
                             primary: Colours.primaryColor,
-                            shape: RoundedRectangleBorder( 
+                            shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(25),
                               side: BorderSide(color: Colors.grey),
-                              
                             ),
-                            
                           ),
                         ),
                       ],
@@ -249,8 +246,3 @@ class _MultiAnswerTypeState extends State<MultiAnswerType> {
     );
   }
 }
-
-
-
-
-   

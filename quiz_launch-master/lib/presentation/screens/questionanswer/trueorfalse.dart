@@ -143,7 +143,7 @@ class _TrueOrFalseTypeState extends State<TrueOrFalseType> {
                         SizedBox(height: 20),
                         ElevatedButton(
                           onPressed: () {
-                            Get.to(() => MultiAnswerType());
+                            Get.to(() => MultipleAnswerType());
                           },
                           child: Text(
                             trueorfalsetypeconstants.text5,

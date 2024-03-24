@@ -7,6 +7,7 @@ import 'package:quiz_app/gen/fonts.gen.dart';
 import 'package:quiz_app/presentation/screens/profile/profile_page.dart';
 import 'package:quiz_app/presentation/screens/quiz_completed/quizcomp_constants.dart';
 
+
 class QuizComplete extends StatefulWidget {
   const QuizComplete({Key? key}) : super(key: key);
 
@@ -18,35 +19,37 @@ class _QuizCompleteState extends State<QuizComplete> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            QuizCompleteConstants.appbar1,
-            style: TextStyle(
-              color: Colours.primaryColor,
-              fontFamily: FontFamily.rubik,
-              fontSize: 24,
-              fontWeight: FontWeight.w500,
-            ),
+      appBar: AppBar(
+        title: Text(
+          QuizCompleteConstants.appbar1,
+          style: TextStyle(
+            color: Colours.primaryColor,
+            fontFamily: FontFamily.rubik,
+            fontSize: 24,
+            fontWeight: FontWeight.w500,
           ),
-          foregroundColor: Colours.CardColour,
-          centerTitle: true,
-          iconTheme: IconThemeData(
-            color: Colours.CardColour,
-            size: 25,
-          ),
-          backgroundColor: Colours.CardColour,
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.cancel,
-                color: Colours.primaryColor,
-              ),
-            ),
-          ],
+        ),
+        foregroundColor: Colours.CardColour,
+        centerTitle: true,
+        iconTheme: IconThemeData(
+          color: Colours.CardColour,
+          size: 25,
         ),
         backgroundColor: Colours.CardColour,
-        body: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.cancel,
+              color: Colours.primaryColor,
+            ),
+          ),
+        ],
+      ),
+      backgroundColor: Colours.CardColour,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
           Container(
             margin: EdgeInsets.only(left: 10),
             height: 318,
@@ -94,29 +97,26 @@ class _QuizCompleteState extends State<QuizComplete> {
               ),
             ),
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 10), 
           Container(
             padding: EdgeInsets.only(top: 5, left: 26),
-            alignment: Alignment.topLeft,
+            alignment: Alignment.topLeft, 
             child: Text(
               QuizCompleteConstants.text3,
               style: TextStyle(
-                color: Colours.textColour,
+                color: Colours.textColour, 
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
               ),
             ),
           ),
-          SizedBox(
-            height: 5,
-          ),
+          SizedBox(height: 5,),
           Image.asset(Assets.images.lineChart.path),
           SizedBox(height: 10),
           Expanded(
             child: GridView.count(
               crossAxisCount: 2,
-              mainAxisSpacing: 5,
-              // Adjust this value to reduce space between columns
+              mainAxisSpacing: 5, // Adjust this value to reduce space between columns
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
               children: [
@@ -124,91 +124,85 @@ class _QuizCompleteState extends State<QuizComplete> {
                   width: double.infinity,
                   child: Column(
                     children: [
-                      Text(
-                        QuizCompleteConstants.text4,
-                        style: TextStyle(
-                          color: Colours.textColour,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      Text(QuizCompleteConstants.text5,
-                          style: TextStyle(
-                            color: Colours.primaryColor,
-                            fontFamily: FontFamily.rubik,
-                            fontSize: 24,
-                            fontWeight: FontWeight.w500,
-                          )),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Text(QuizCompleteConstants.text8,
-                          style: TextStyle(
-                            color: Colours.textColour,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                          )),
-                      Text(QuizCompleteConstants.text10,
-                          style: TextStyle(
-                            color: Colours.primaryColor,
-                            fontFamily: FontFamily.rubik,
-                            fontSize: 24,
-                            fontWeight: FontWeight.w500,
-                          ))
-                    ],
+                      Text(QuizCompleteConstants.text4,style: TextStyle(
+                color: Colours.textColour, 
+                fontSize: 12,
+                fontWeight: FontWeight.w500,
+              ),),
+              Text(QuizCompleteConstants.text5,  style: TextStyle(
+            color: Colours.primaryColor,
+            fontFamily: FontFamily.rubik,
+            fontSize: 24,
+            fontWeight: FontWeight.w500,)
+                     
+                  ),
+                  SizedBox(height: 15,),
+                  Text(QuizCompleteConstants.text8,style: TextStyle(
+                color: Colours.textColour, 
+                fontSize: 12,
+                fontWeight: FontWeight.w500,
+              )
+              
+              ),
+              Text(QuizCompleteConstants.text10,  style: TextStyle(
+            color: Colours.primaryColor,
+            fontFamily: FontFamily.rubik,
+            fontSize: 24,
+            fontWeight: FontWeight.w500,)
+                  )],
                   ),
                 ),
                 SizedBox(
                   width: double.infinity,
                   child: Column(
                     children: [
-                      Text(
-                        QuizCompleteConstants.text6,
-                        style: TextStyle(
-                          color: Colours.textColour,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      Text(QuizCompleteConstants.text7,
-                          style: TextStyle(
-                            color: Colours.primaryColor,
-                            fontFamily: FontFamily.rubik,
-                            fontSize: 24,
-                            fontWeight: FontWeight.w500,
-                          )),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Text(QuizCompleteConstants.text9,
-                          style: TextStyle(
-                            color: Colours.textColour,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                          )),
-                      Text(QuizCompleteConstants.text11,
-                          style: TextStyle(
-                            color: Colours.primaryColor,
-                            fontFamily: FontFamily.rubik,
-                            fontSize: 24,
-                            fontWeight: FontWeight.w500,
-                          )),
+                                          Text(QuizCompleteConstants.text6,style: TextStyle(
+                color: Colours.textColour, 
+                fontSize: 12,
+                fontWeight: FontWeight.w500,
+              ),),
+              Text(QuizCompleteConstants.text7,  style: TextStyle(
+            color: Colours.primaryColor,
+            fontFamily: FontFamily.rubik,
+            fontSize: 24,
+            fontWeight: FontWeight.w500,)
+                     
+                  ),
+                  SizedBox(height: 15,),
+                  Text(QuizCompleteConstants.text9,style: TextStyle(
+                color: Colours.textColour, 
+                fontSize: 12,
+                fontWeight: FontWeight.w500,
+              )
+              
+              ),
+              Text(QuizCompleteConstants.text11,  style: TextStyle(
+            color: Colours.primaryColor,
+            fontFamily: FontFamily.rubik,
+            fontSize: 24,
+            fontWeight: FontWeight.w500,)
+                  ),
+                   
                     ],
+                   
                   ),
                 ),
+               
+               
               ],
             ),
           ),
           Container(
-            margin: EdgeInsets.only(left: 25, bottom: 20),
+            margin: EdgeInsets.only(left: 25,bottom: 20),
             child: Row(
               children: [
-                Row(
-                  children: [
-                    SizedBox(height: 10),
+                 Row(
+                  
+                      children: [
+                         SizedBox(height: 10),
                     ElevatedButton(
                       onPressed: () {
-                        Get.to(() => (ProfilePage()));
+                          Get.to(()=>(ProfilePage()));
                       },
                       child: Text(
                         QuizCompleteConstants.text12,
@@ -226,21 +220,19 @@ class _QuizCompleteState extends State<QuizComplete> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: 40,
-                    ),
+                    SizedBox(width: 40,),
                     IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.share,
-                        color: Colours.primaryColor,
-                      ),
-                    ),
-                  ],
-                )
+              onPressed: () {},
+              icon: Icon(
+                Icons.share,
+                color: Colours.primaryColor,
+              ),
+            ), 
               ],
-            ),
+            )
+                    ],
+                  ),
           ),
-        ]));
+   ] ));
   }
 }

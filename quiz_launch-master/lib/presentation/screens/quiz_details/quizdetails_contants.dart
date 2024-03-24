@@ -1,4 +1,4 @@
-class Quizdetailsconstant{
+class QuizDetailsConstants{
  static String textcard1 ="Sports";
  static String textcard2 ="Basic Trivia Quiz";
  static String textcard3 ="10 questions";

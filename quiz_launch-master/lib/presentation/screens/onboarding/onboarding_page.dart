@@ -6,7 +6,7 @@ import 'package:quiz_app/data/models/user_models.dart';
 import 'package:quiz_app/gen/assets.gen.dart';
 import 'package:quiz_app/gen/fonts.gen.dart';
 import 'package:quiz_app/presentation/screens/onboarding/onboarding_constants.dart';
-import 'package:quiz_app/presentation/screens/onboarding/onboarding_controller.dart';
+import 'package:quiz_app/presentation/screens/controller/onboarding_controller.dart';
 import 'package:quiz_app/presentation/screens/signup/signup_page.dart';
 
 class OnBoardingPage extends StatefulWidget {

@@ -18,6 +18,7 @@ class Colours
   static Color onpressedbutton = Color.fromRGBO(255, 143, 162, 1);
   static Color wronganswer = Color.fromRGBO(255, 102, 102, 1);                                                       
   static Color imagebutton  = Color.fromRGBO(255, 255, 255, 1);
-   static Color Orange  = Color.fromRGBO(242, 153, 74, 1);
-
+  static Color Orange  = Color.fromRGBO(242, 153, 74, 1);
+  static Color  redcolor = Color.fromRGBO(235, 87, 87, 1);
+  static Color  dividercolor= Color.fromRGBO(239, 238, 252, 1);
 }  
